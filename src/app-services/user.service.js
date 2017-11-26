@@ -7,10 +7,12 @@
 
 	UserService.$inject = ['$http'];
 	function UserService($http) {
-		var service = {};
+		const service = {};
+		const apiBaseUrl = 'http://localhost:50032/';
 
 		service.Authenticate = Authenticate;
 		service.GetByUsername = GetByUsername;
+		service.GetActivePlayers = GetActivePlayers;
 		service.Create = Create;
 		service.Update = Update;
 		service.Delete = Delete;
@@ -18,16 +20,20 @@
 		return service;
 
 		function GetByUsername(username) {
-			return $http.get('http://localhost:50032/users/' + username).then(handleSuccess, handleError);
+			return $http.get(`${apiBaseUrl}/${username}`).then(handleSuccess, handleError);
+		}
+		
+		function GetActivePlayers() {
+			return $http.get(`${apiBaseUrl}/${username}`).then(handleSuccess, handleError);
 		}
 
 		function Authenticate(username, password) {
-			return $http.post('http://localhost:50032/users/authenticate', { username: username, password: password })
+			return $http.post(`${apiBaseUrl}/authenticate`, { username: username, password: password })
 				.then(handleSuccess, handleError);
 		}
 
 		function Create(user) {
-			return $http.post('http://localhost:50032/users/register', user).then(handleSuccess, handleError);
+			return $http.post(`${apiBaseUrl}/register`, user).then(handleSuccess, handleError);
 		}
 
 		function Update(user) {

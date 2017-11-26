@@ -2,7 +2,8 @@
   const app = angular.module("myApp", []);
   const util = new Util();
   const canvasController = new CanvasController();
-  const apiBaseUrl = 'http://tictactoegrdapi.azurewebsites.net'
+  // const apiBaseUrl = 'http://tictactoegrdapi.azurewebsites.net';
+	const apiBaseUrl = 'http://localhost:50032/';
   const agniKaiUri = "agnikai";
   const gamerUri = "gamer";
   const usersUri = "users";

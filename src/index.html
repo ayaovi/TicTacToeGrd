@@ -17,6 +17,7 @@
 	</div>
 
 	<script src="libs/jquery-3.1.1.min.js"></script>
+	<script src="libs/jquery.signalR-2.2.2.min.js"></script>
 	<script src="libs/angular-1.6.0.min.js"></script>
 	<script src="libs/angular-route-1.6.0.min.js"></script>
 	<script src="libs/angular-cookies-1.6.0.min.js"></script>
@@ -31,8 +32,15 @@
 	<!-- Fake user service for demo that uses local storage -->
 	<!-- <script src="app-services/user.service.local-storage.js"></script> -->
 
-	<script src="home/home.controller.js"></script>
+	<!-- <script src="home/home.controller.js"></script> -->
+	<script src="game/game.controller.js"></script>
 	<script src="login/login.controller.js"></script>
 	<script src="register/register.controller.js"></script>
+	
+  <!-- <script src="http://tictactoegrdapi.azurewebsites.net/signalr/hubs"></script> -->
+	<script src="http://localhost:50032/signalr/hubs"></script>
+	<script src="scripts/tttgrd-util.js"></script>
+  <script src="scripts/canvas-controller/canvas-controller.js"></script>
+  <script src="scripts/tttgrd-game.js"></script>
 </body>
 </html>
