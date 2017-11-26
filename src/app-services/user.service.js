@@ -18,7 +18,7 @@
 		return service;
 
 		function GetByUsername(username) {
-			return $http.get('/api/users/' + username).then(handleSuccess, handleError);
+			return $http.get('http://localhost:50032/users/' + username).then(handleSuccess, handleError);
 		}
 
 		function Authenticate(username, password) {
