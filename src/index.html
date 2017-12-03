@@ -15,7 +15,21 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyBoRAJ5wAQEMNP5q-J_ssLGgfHGju9QMSM",
+			authDomain: "test-project-fade6.firebaseapp.com",
+			databaseURL: "https://test-project-fade6.firebaseio.com",
+			projectId: "test-project-fade6",
+			storageBucket: "test-project-fade6.appspot.com",
+			messagingSenderId: "601693047100"
+		};
+		firebase.initializeApp(config);
+	</script>
+	
 	<script src="libs/jquery-3.1.1.min.js"></script>
 	<script src="libs/jquery.signalR-2.2.2.min.js"></script>
 	<script src="libs/angular-1.6.0.min.js"></script>
@@ -23,24 +37,21 @@
 	<script src="libs/angular-cookies-1.6.0.min.js"></script>
 
 	<script src="app.js"></script>
-	<script src="app-services/authentication.service.js"></script>
+	<!-- <script src="app-services/authentication.service.js"></script> -->
 	<script src="app-services/flash.service.js"></script>
 
 	<!-- Real user service that uses an api -->
 	<script src="app-services/user.service.js"></script>
-
-	<!-- Fake user service for demo that uses local storage -->
-	<!-- <script src="app-services/user.service.local-storage.js"></script> -->
-
-	<!-- <script src="home/home.controller.js"></script> -->
-	<script src="game/game.controller.js"></script>
-	<script src="login/login.controller.js"></script>
+	
+	<script src="home/home.controller.js"></script>
+	<!-- <script src="game/game.controller.js"></script> -->
 	<script src="register/register.controller.js"></script>
+	<script src="login/login.controller.js"></script>
 	
   <!-- <script src="http://tictactoegrdapi.azurewebsites.net/signalr/hubs"></script> -->
-	<script src="http://localhost:50032/signalr/hubs"></script>
-	<script src="scripts/tttgrd-util.js"></script>
-  <script src="scripts/canvas-controller/canvas-controller.js"></script>
-  <script src="scripts/tttgrd-game.js"></script>
+	<!-- <script src="http://localhost:50032/signalr/hubs"></script> -->
+	<!-- <script src="scripts/tttgrd-util.js"></script> -->
+  <!-- <script src="scripts/canvas-controller/canvas-controller.js"></script> -->
+  <!-- <script src="scripts/tttgrd-game.js"></script> -->
 </body>
 </html>
