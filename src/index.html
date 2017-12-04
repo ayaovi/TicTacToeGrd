@@ -17,9 +17,10 @@
 	</div>
 	
 	<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase-auth.js"></script>
 	<script>
 		// Initialize Firebase
-		var config = {
+		const config = {
 			apiKey: "AIzaSyBoRAJ5wAQEMNP5q-J_ssLGgfHGju9QMSM",
 			authDomain: "test-project-fade6.firebaseapp.com",
 			databaseURL: "https://test-project-fade6.firebaseio.com",
@@ -28,6 +29,7 @@
 			messagingSenderId: "601693047100"
 		};
 		firebase.initializeApp(config);
+		// const rootRef = firebase.database().ref();
 	</script>
 	
 	<script src="libs/jquery-3.1.1.min.js"></script>

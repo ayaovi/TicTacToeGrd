@@ -21,6 +21,12 @@
 					// controllerAs: 'vm'
 			// })
 
+			.when('/game', {
+					controller: 'GameController',
+					templateUrl: 'game/game.view.html',
+					controllerAs: 'vm'
+			})
+			
 			.when('/login', {
 					controller: 'LoginController',
 					templateUrl: 'login/login.view.html',

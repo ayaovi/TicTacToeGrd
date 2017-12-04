@@ -24,12 +24,33 @@
 			.then(function () {
 				console.log('Successful Login!');
 				const user = firebase.auth().currentUser;
-				//log user in.
+				
+				if (user) {
+					// log user in.
+					logUser(user);
+				}
+				else {
+					// something went wrong.
+				}
+				// $location.path('/game').replace();
+				// $scope.$apply();
 			})
 			.catch(function(error) {
 				var errorCode = error.code;
 				var errorMessage = error.message;
 			});
 		};
+
+		function logUser(user) {
+			const userRef = firebase.database().ref("users/");
+			const visitor = {
+				uid: user.uid,
+				email: user.email,
+				emailVerified: user.emailVerified,
+				arrivedAt: firebase.database.ServerValue.TIMESTAMP,
+				userAgent: navigator.userAgent
+			};
+			userRef.push(visitor);
+		}
 	}
 })();
