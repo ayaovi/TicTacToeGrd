@@ -43,14 +43,23 @@
 
 		function logUser(user) {
 			const userRef = firebase.database().ref("users/");
-			const visitor = {
-				uid: user.uid,
-				email: user.email,
-				emailVerified: user.emailVerified,
-				arrivedAt: firebase.database.ServerValue.TIMESTAMP,
-				userAgent: navigator.userAgent
-			};
-			userRef.push(visitor);
+
+			user.getIdToken(true)
+			.then(function (idToken) {
+				const visitor = {
+					uid: user.uid,
+					idToken: idToken,
+					email: user.email,
+					emailVerified: user.emailVerified,
+					arrivedAt: firebase.database.ServerValue.TIMESTAMP,
+					userAgent: navigator.userAgent
+				};
+
+				userRef.push(visitor);
+			})
+			.catch(function () {
+				console.log("Token Retrieval Unsuccessful.");
+			});
 		}
 	}
 })();
