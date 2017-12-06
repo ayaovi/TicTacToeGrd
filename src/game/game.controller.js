@@ -22,15 +22,7 @@
 		}
 		
 		function loadCurrentUser() {
-			UserService.GetByUsername($rootScope.globals.currentUser.username)
-				.then(function (response) {
-					if (response.success) {
-						vm.user = response.data;
-					}
-					else {
-						vm.user = {};
-					}
-				});
+			// we might want to load the user informations here.
 		}
 		
 		function getActivePlayers() {

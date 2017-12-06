@@ -42,7 +42,8 @@
 		};
 
 		function logUser(user) {
-			const userRef = firebase.database().ref("users/");
+			const dbRoot = firebase.database().ref();
+			const users = dbRoot.child("users");
 
 			user.getIdToken(true)
 			.then(function (idToken) {
@@ -55,9 +56,30 @@
 					userAgent: navigator.userAgent
 				};
 
-				userRef.push(visitor);
+				const activeUserRef = users.push(visitor, function() {
+					users.child(visitorId).once('value', function (snapshot) {
+						visitor.arrivedAt = snapshot.child('arrivedAt').val();
+						const pastVisitors = dbRoot.child('pastVisitors');
+						visitor.leftAt = firebase.database.ServerValue.TIMESTAMP;
+						pastVisitors.child(visitorId).onDisconnect().set(visitor);
+					});
+				});
+				
+				const visitorId = activeUserRef.key;
+				
+				activeUserRef.onDisconnect().remove();
+
+				$rootScope.globals = {
+				  currentUser: visitor
+				};
+
+				const cookieExp = new Date();
+        cookieExp.setDate(cookieExp.getDate() + 7);
+        $cookies.putObject('globals', $rootScope.globals, { expires: cookieExp });
 			})
-			.catch(function () {
+			.catch(function (error) {
+				var errorCode = error.code;
+				var errorMessage = error.message;
 				console.log("Token Retrieval Unsuccessful.");
 			});
 		}
