@@ -9,19 +9,19 @@
 	config.$inject = ['$routeProvider', '$locationProvider'];
 	function config($routeProvider, $locationProvider) {
 		$routeProvider
-			.when('/', {
-				controller: 'HomeController',
-				templateUrl: 'home/home.view.html',
-				controllerAs: 'vm'
-			})
-						
+			// .when('/', {
+			// 	controller: 'HomeController',
+			// 	templateUrl: 'home/home.view.html',
+			// 	controllerAs: 'vm'
+			// })
+
 			// .when('/', {
 					// controller: 'GameController',
 					// templateUrl: 'game/game.view.html',
 					// controllerAs: 'vm'
 			// })
 
-			.when('/game', {
+			.when('/', {
 					controller: 'GameController',
 					templateUrl: 'game/game.view.html',
 					controllerAs: 'vm'

@@ -51,6 +51,7 @@
 					uid: user.uid,
 					idToken: idToken,
 					email: user.email,
+					username: user.email,
 					emailVerified: user.emailVerified,
 					arrivedAt: firebase.database.ServerValue.TIMESTAMP,
 					userAgent: navigator.userAgent

@@ -1,5 +1,5 @@
 (function () {
-	"user strict";
+	"use strict";
 	
 	angular
 	.module("app")
@@ -12,8 +12,8 @@
 		vm.user = null;
 		vm.activePlayers = null;
 		
-		const util = new Util();
-		const canvasController = new CanvasController();
+		// const util = new Util();
+		// const canvasController = new CanvasController();
 		
 		initController();
 
@@ -22,19 +22,18 @@
 		}
 		
 		function loadCurrentUser() {
-			// we might want to load the user informations here.
+			vm.user = $rootScope.globals.currentUser;
 		}
 		
 		function getActivePlayers() {
-			UserService.GetActivePlayers()
-			.then(function (response) {
-				if (response.success) {
-					vm.activePlayers = response.data.filter(player => player.Name !== vm.user.username);
-				}
-				else {
-					console.log("Unable to retrieve active players.");
-					vm.activePlayers = {};
-				}
+			console.log("Request to get Active Players.");
+			const dbRoot = firebase.database().ref();
+			const users = dbRoot.child("users");
+
+			users.on("value", function(snapshot) {
+				vm.activePlayers = snapshot.value;
+			}, function (error) {
+				console.log("Unable to Retrieve Active Players.");
 			});
 		}
 	}
