@@ -10,6 +10,7 @@
 	function GameController($rootScope, $scope) {
 		const vm = this;
 		vm.user = null;
+		vm.selectedPlayer = null;
 		vm.activePlayers = [];
 		
 		// const util = new Util();
@@ -45,6 +46,15 @@
 
 		this.challengeAI = function () {
 			console.log("Request to challenge AI.");
+		}
+
+		this.viewPlayerInfo = function (player) {
+			vm.selectedPlayer = player;
+			// $scope.$apply();
+		}
+
+		this.challengeSelectedPlayer = function () {
+			console.log(`Request to challenge ${vm.selectedPlayer.email}.`);
 		}
 	}
 })();
