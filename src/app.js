@@ -15,12 +15,6 @@
 			// 	controllerAs: 'vm'
 			// })
 
-			// .when('/', {
-					// controller: 'GameController',
-					// templateUrl: 'game/game.view.html',
-					// controllerAs: 'vm'
-			// })
-
 			.when('/', {
 					controller: 'GameController',
 					templateUrl: 'game/game.view.html',
