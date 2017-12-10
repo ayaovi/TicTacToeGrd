@@ -16,21 +16,21 @@
 			// })
 
 			.when('/', {
-					controller: 'GameController',
-					templateUrl: 'game/game.view.html',
-					controllerAs: 'vm'
+				controller: 'GameController',
+				templateUrl: 'game/game.view.html',
+				controllerAs: 'vm'
 			})
 			
 			.when('/login', {
-					controller: 'LoginController',
-					templateUrl: 'login/login.view.html',
-					controllerAs: 'vm'
+				controller: 'LoginController',
+				templateUrl: 'login/login.view.html',
+				controllerAs: 'vm'
 			})
 
 			.when('/register', {
-					controller: 'RegisterController',
-					templateUrl: 'register/register.view.html',
-					controllerAs: 'vm'
+				controller: 'RegisterController',
+				templateUrl: 'register/register.view.html',
+				controllerAs: 'vm'
 			})
 
 			.otherwise({ redirectTo: '/login' });

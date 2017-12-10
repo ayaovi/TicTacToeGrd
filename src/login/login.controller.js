@@ -12,10 +12,8 @@
 		vm.login = login;
 
 		(function initController() {
-			// reset login status
 			$rootScope.globals = {};
 			$cookies.remove('globals');
-			// AuthenticationService.ClearCredentials();
 		})();
 
 		function login() {
@@ -31,9 +29,10 @@
 				}
 				else {
 					// something went wrong.
+					console.log("User Authentication Unsuccessful...");
 				}
-				// $location.path('/game').replace();
-				// $scope.$apply();
+				$location.path('/').replace();
+				$scope.$apply();
 			})
 			.catch(function(error) {
 				var errorCode = error.code;
